@@ -30,7 +30,8 @@ export function updateUser(req, res) {
       res.writeHead(200, 'User updated', { 'Content-Type': 'application/json' });
       res.end(JSON.stringify('User updated'));
     } catch (error) {
-      console.log(error)
+      res.writeHead(400, 'Bad request', { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify('Body does not contain all the necessary fields or is not valid'));
     }
   }
 }

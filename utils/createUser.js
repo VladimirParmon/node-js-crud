@@ -16,12 +16,10 @@ export async function createNewUser(req, res) {
       store.push(newUserData);
       res.writeHead(201, 'New user created', { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(newUserData));
-    } else {
-      res.writeHead(400, 'Body does not contain all the necessary fields', { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify('Body does not contain all the necessary fields'));
     }
-  } catch (error) {
-    console.log(error)
+  } catch (err) {
+    res.writeHead(400, 'Bad request', { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify('Body does not contain all the necessary fields or is not valid'));
   }
 }
 
