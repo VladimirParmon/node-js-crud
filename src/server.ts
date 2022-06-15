@@ -6,12 +6,13 @@ import { updateUser } from "./utils/updateUser.js";
 import { deleteUser } from "./utils/deleteUser.js";
 import { HEADERS, HTTP_METHODS, URLS } from "./utils/constants.js";
 import { endResponse } from "./utils/endResponse.js";
+import { IncomingMessage, ServerResponse } from "http";
 
 dotenv.config();
-const env = process.env;
-const HOSTNAME = env.MY_HOSTNAME ? +env.MY_HOSTNAME : 3000;
+const env: NodeJS.ProcessEnv = process.env;
+const HOSTNAME: number = env.MY_HOSTNAME ? +env.MY_HOSTNAME : 3000;
 
-const server = http.createServer((req, res) => {
+const server: http.Server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "origin, content-type, accept");
 

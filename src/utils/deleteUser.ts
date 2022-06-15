@@ -4,15 +4,13 @@ import { IncomingMessage, ServerResponse } from "http";
 import { endResponse } from "./endResponse.js";
 import { HEADERS } from "./constants.js";
 
-export function deleteUser(req: IncomingMessage, res: ServerResponse) {
+export function deleteUser(req: IncomingMessage, res: ServerResponse): void {
   const userID: string = req.url?.split("/")[3] as string;
   if (!uuidValidate(userID)) {
     endResponse(res, HEADERS.INVALID_ID);
     return;
   }
-  const indexOfUserToBeChanged: number = store.findIndex(
-    (userData) => userData.id === userID
-  );
+  const indexOfUserToBeChanged: number = store.findIndex((userData) => userData.id === userID);
   if (indexOfUserToBeChanged !== -1) {
     proceedWithDeletion(indexOfUserToBeChanged);
   } else {
