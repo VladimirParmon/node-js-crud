@@ -31,7 +31,7 @@ export const HEADERS: Headers = {
     message: "Bad request",
   },
   GET_SUCCESS: {
-    statusCode: 400,
+    statusCode: 200,
   },
   CREATE_USER_SUCCESS: {
     statusCode: 201,
