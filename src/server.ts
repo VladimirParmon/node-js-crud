@@ -4,7 +4,7 @@ import { getAllUsers, getUser } from "./utils/getUsers.js";
 import { createNewUser } from "./utils/createUser.js";
 import { updateUser } from "./utils/updateUser.js";
 import { deleteUser } from "./utils/deleteUser.js";
-import { HEADERS, HTTP_METHODS } from "./utils/constants.js";
+import { HEADERS, HTTP_METHODS, URLS } from "./utils/constants.js";
 import { endResponse } from "./utils/endResponse.js";
 
 dotenv.config();
@@ -16,19 +16,11 @@ const server = http.createServer((req, res) => {
   res.setHeader("Access-Control-Allow-Headers", "origin, content-type, accept");
 
   const queryOptions = {
-    getAll:
-      req.url?.match(/^\/api\/users\/?$/) && req.method === HTTP_METHODS.GET,
-    getUser:
-      req.url?.match(/^\/api\/users\/[\d\w-]+\/?$/) &&
-      req.method === HTTP_METHODS.GET,
-    createNewUser:
-      req.url?.match(/^\/api\/users\/?$/) && req.method === HTTP_METHODS.POST,
-    updateUser:
-      req.url?.match(/^\/api\/users\/[\d\w-]+\/?$/) &&
-      req.method === HTTP_METHODS.PUT,
-    deleteUser:
-      req.url?.match(/^\/api\/users\/[\d\w-]+\/?$/) &&
-      req.method === HTTP_METHODS.DELETE,
+    getAll: req.url?.match(URLS.WITHOUT_ID) && req.method === HTTP_METHODS.GET,
+    getUser: req.url?.match(URLS.WITH_ID) && req.method === HTTP_METHODS.GET,
+    createNewUser: req.url?.match(URLS.WITHOUT_ID) && req.method === HTTP_METHODS.POST,
+    updateUser: req.url?.match(URLS.WITH_ID) && req.method === HTTP_METHODS.PUT,
+    deleteUser: req.url?.match(URLS.WITH_ID) && req.method === HTTP_METHODS.DELETE,
   };
 
   if (queryOptions.getAll) {

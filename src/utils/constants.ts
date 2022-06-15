@@ -5,6 +5,14 @@ export enum HTTP_METHODS {
   DELETE = "DELETE",
 }
 
+export const URLS: Urls = {
+  WITHOUT_ID: /^\/api\/users\/?$/,
+  WITH_ID: /^\/api\/users\/[\d\w-]+\/?$/,
+};
+
+type UrlTypes = "WITH_ID" | "WITHOUT_ID";
+type Urls = Record<UrlTypes, RegExp>;
+
 export const HEADERS: Headers = {
   BAD_ENDPOINT: {
     statusCode: 404,
