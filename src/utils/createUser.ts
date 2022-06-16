@@ -1,10 +1,10 @@
-import { RequestBody, store, User } from "../store.js";
+import { RequestBody, store, User } from "../store";
 import { v4 as uuidv4 } from "uuid";
-import { getBodyData } from "./getBodyData.js";
+import { getBodyData } from "./getBodyData";
 import { IncomingMessage, ServerResponse } from "http";
-import { endResponse } from "./endResponse.js";
-import { HEADERS } from "./constants.js";
-import { isAValidBody } from "./requestBodyCheck.js";
+import { endResponse } from "./endResponse";
+import { HEADERS } from "./constants";
+import { isAValidBody } from "./requestBodyCheck";
 
 export async function createNewUser(req: IncomingMessage, res: ServerResponse): Promise<void> {
   try {

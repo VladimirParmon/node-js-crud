@@ -1,6 +1,6 @@
 import { Payload } from "./constants";
 import { ServerResponse } from "http";
-import { User } from "src/store";
+import { User } from "../store";
 
 export function endResponse(
   res: ServerResponse,

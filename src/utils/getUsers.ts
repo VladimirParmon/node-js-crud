@@ -1,8 +1,8 @@
-import { store, User } from "../store.js";
+import { store, User } from "../store";
 import { validate as uuidValidate } from "uuid";
 import { IncomingMessage, ServerResponse } from "http";
-import { endResponse } from "./endResponse.js";
-import { HEADERS } from "./constants.js";
+import { endResponse } from "./endResponse";
+import { HEADERS } from "./constants";
 
 export function getAllUsers(res: ServerResponse): void {
   res.end(JSON.stringify(store));

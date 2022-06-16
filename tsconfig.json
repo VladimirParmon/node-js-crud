@@ -1,31 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "outDir": "lib",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "declaration": true,
-    "declarationDir": "lib",
+    "target": "es6",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "node16",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
-    "baseUrl": "."
-    // "paths": {
-    //   "@images/*": ["./src/assets/*"],
-    //   "@src/*": ["./src/*"]
-    // }
+    "noEmit": false,
+    "sourceMap": true
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "lib"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": true
-}
+  }
 }

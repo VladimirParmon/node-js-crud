@@ -1,4 +1,4 @@
-import { RequestBody } from "src/store";
+import { RequestBody } from "../store";
 
 export function isAValidBody(obj: any): obj is RequestBody {
   const username = "username" in obj && typeof (obj["username"] === "string");

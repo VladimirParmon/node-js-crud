@@ -1,10 +1,10 @@
-import { getBodyData } from "./getBodyData.js";
-import { RequestBody, store } from "../store.js";
+import { getBodyData } from "./getBodyData";
+import { RequestBody, store } from "../store";
 import { validate as uuidValidate } from "uuid";
 import { IncomingMessage, ServerResponse } from "http";
-import { endResponse } from "./endResponse.js";
-import { HEADERS } from "./constants.js";
-import { isAValidBody } from "./requestBodyCheck.js";
+import { endResponse } from "./endResponse";
+import { HEADERS } from "./constants";
+import { isAValidBody } from "./requestBodyCheck";
 
 export function updateUser(req: IncomingMessage, res: ServerResponse): void {
   const userID: string = req.url?.split("/")[3] as string;

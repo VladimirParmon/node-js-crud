@@ -1,11 +1,11 @@
 import * as http from "http";
 import * as dotenv from "dotenv";
-import { getAllUsers, getUser } from "./utils/getUsers.js";
-import { createNewUser } from "./utils/createUser.js";
-import { updateUser } from "./utils/updateUser.js";
-import { deleteUser } from "./utils/deleteUser.js";
-import { HEADERS, HTTP_METHODS, URLS } from "./utils/constants.js";
-import { endResponse } from "./utils/endResponse.js";
+import { getAllUsers, getUser } from "./utils/getUsers";
+import { createNewUser } from "./utils/createUser";
+import { updateUser } from "./utils/updateUser";
+import { deleteUser } from "./utils/deleteUser";
+import { HEADERS, HTTP_METHODS, URLS } from "./utils/constants";
+import { endResponse } from "./utils/endResponse";
 import { IncomingMessage, ServerResponse } from "http";
 
 dotenv.config();
